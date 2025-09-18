@@ -122,7 +122,7 @@ export default function TodoCrudScreen() {
 			/>
 			<FlatList
 				style={tw`mt-4 flex w-[80vw]`}
-				data={todos.reverse()}
+				data={todos}
 				keyExtractor={(item) => item.id?.toString()}
 				numColumns={numColumns}
 				renderItem={renderItem}
