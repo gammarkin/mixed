@@ -12,13 +12,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Example route
 @app.get("/")
 def read_root():
     return {"message": "API is running"}
 
 app.include_router(todo_router.router, prefix="/todos", tags=["todos"])
-
-# Import and include your routers here
-# from .routers import todo
-# app.include_router(todo.router, prefix
