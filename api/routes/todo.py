@@ -25,7 +25,7 @@ init_db()
 
 @router.get("/", response_model=List[Todo])
 def get_todos(conn: sqlite3.Connection = Depends(get_db)):
-    cursor = conn.execute("SELECT id, title, description, completed FROM todos")
+    cursor = conn.execute("SELECT id, title, description, completed FROM todos ORDER BY id DESC")
     return [Todo(**dict(row)) for row in cursor.fetchall()]
 
 @router.get("/{todo_id}", response_model=Todo)
